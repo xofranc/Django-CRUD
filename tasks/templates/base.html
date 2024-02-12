@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Django CRUD Application</title>
 </head>
 <body>
-$END$
+    
+    <nav>
+        <ul>           
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/tasks">Tasks</a>
+            </li>
+            <li>
+                <a href="/">About</a>
+            </li>
+            
+            {% if user.is_authenticated %}
+                
+            <li>
+                <a href="/logout">Log Out</a>
+            </li>
+                
+            {% else %}
+            <li>
+                <a href="/signup">SignUp</a>
+            </li>
+            <li>
+                <a href="/login">Login</a>
+            </li>                
+            {% endif %} 
+            
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

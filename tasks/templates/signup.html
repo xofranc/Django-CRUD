@@ -6,18 +6,22 @@
     <title>Sign Up</title>
 </head>
 <body>
+    {% extends  'base.html' %}
 
+    
+    {% block content %}     
     <h1>Sign Up</h1>
     
     {{ error }}
-
+    
     <form method = 'POST'>
-        {{ form.as_p }}
         {% csrf_token %}
+        {{ form.as_p }}
         <button>
             Sign Up
         </button>
     </form>
+    {% endblock %}
     
 </body>
 </html>
