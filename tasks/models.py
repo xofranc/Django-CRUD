@@ -3,7 +3,9 @@ from django.db import models
 # Create your models here.
 
 
-#creacion de Usuarios
+# creacion de Usuarios
+
+
 class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
