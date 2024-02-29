@@ -1,20 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    {% extends 'base.html' %}
-
     {% block content %}
-    <h1>Home</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio voluptatum itaque atque similique veritatis officiis repudiandae error, molestias soluta, ullam saepe rem tempore et asperiores, natus sequi consequatur eveniet explicabo!
-    Minima ipsa distinctio nihil praesentium ab molestiae aut magnam corporis labore ipsam voluptatem aliquid laborum tempore obcaecati non mollitia est nisi, sit inventore cum. Aut totam eum ipsum incidunt quisquam?
-    Nemo dolores dolorum ex numquam tenetur exercitationem consequuntur cum adipisci ad blanditiis, minus maiores commodi reprehenderit corporis iusto assumenda recusandae id, dolor minima error ut harum! Laborum quam provident a?
-    Laboriosam magni voluptatibus quo nisi autem ipsum consequuntur velit quae corporis totam eum a molestiae maxime repudiandae, aspernatur fugit hic tenetur iure saepe eveniet corrupti, voluptatem explicabo harum dolores. Odio.
-    Iusto dolores assumenda beatae iure. Saepe laborum ullam accusantium non doloribus, ipsam molestias eaque atque cupiditate unde, error vero aliquam deserunt inventore dolor ut iure architecto iste quis soluta. Ab.</p>
+    <main class="container py-5">
+        <section class="card card-body">
+            <h1>Django CRUD</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro culpa quaerat cupiditate quae, suscipit sapiente, dicta ipsam reprehenderit numquam repellendus ea inventore eius distinctio veritatis debitis temporibus rerum minima saepe!
+            Quos aut laborum inventore iure libero molestiae dignissimos. Saepe corporis, ipsa beatae maiores et excepturi enim veritatis culpa ducimus atque suscipit repellat cupiditate itaque, rerum dolor, consequatur quam aperiam! Nemo?
+            Necessitatibus odio exercitationem minima odit labore ipsam, ex velit quae consectetur, eos dicta sequi soluta corporis explicabo quasi veritatis repudiandae, ratione eius cumque! Repellendus nulla doloribus, unde necessitatibus autem ipsam.
+            Sit consequatur, mollitia, recusandae rem voluptate optio maiores architecto modi ipsum quibusdam saepe. A dolores iure enim ex beatae, distinctio consequatur aliquid sed, exercitationem harum ad repellat soluta, eveniet itaque.
+            Corrupti dolores explicabo laborum voluptatibus omnis, quos soluta dolor recusandae harum labore, itaque odio. Laborum doloribus obcaecati consequuntur natus laboriosam? Ducimus voluptatibus pariatur enim hic provident ratione voluptates perspiciatis ipsum!</p>
+        </section>
+    </main>
     {% endblock %}
-    
 </body>
 </html>

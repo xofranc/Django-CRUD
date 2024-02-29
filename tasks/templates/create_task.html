@@ -1,10 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Crear Tareas</title>
 </head>
 <body>
-$END$
+    {% extends 'base.html' %}
+    {% load static %}
+    
+
+    {% block content %}
+    <h1>Crear Tareas</h1>
+
+        {{ errorMessage }}
+        
+        <form action="/task/create/" method="POST">
+        {% csrf_token %}
+        
+        {{ form }}
+            <button>
+                save
+            </button>
+        </form>
+        
+
+    {% endblock %}
+
 </body>
 </html>
