@@ -2,16 +2,16 @@
 
 {% block content %}
 
-<main class="container">
-    <form method = 'POST' class="card card-body">
-        <h1>Sign Up</h1>
-        {{ error }}
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button>
-            Sign Up
-        </button>
-    </form>
-</main>
+    <main class="container">
+        <form method = 'POST' class="card card-body">
+            <h1>Sign Up</h1>
+            {{ error }}
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>
+                Sign Up
+            </button>
+        </form>
+    </main>
 
 {% endblock %}

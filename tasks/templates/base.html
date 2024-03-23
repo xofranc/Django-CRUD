@@ -9,213 +9,78 @@
 </head>
 
 <body>
-    
-     <!-- <div class="barra-lateral">
-        <div class="nombre-pagina">
-            <ion-icon id="cloud" name="albums-outline"></ion-icon>
-            <span id="title">CRUD</span>
+
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="{% static 'img/blanco.png' %}" alt="12k" width="60" height="55">
+            </a>
         </div>
-
-        <button class="menu-btn">
-            <ion-icon name="add-circle-outline"></ion-icon>
-            <span>Create Task</span>
-        </button>
-
-        <nav class="navegacion">
-            <ul>
-                <li>
-                    <a href="/">
-                        <ion-icon name="home-outline"></ion-icon>
-                        <span>Home</span></a>
-                </li>            
-                <li>
-                    <a href="/">
-                        <ion-icon name="telescope-outline"></ion-icon>
-                        <span>About</span>
-                    </a>
-                </li>
-                
+        
+        <div>
+            <nav class="navbar">
+                <a href="/">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <span>Home</span>
+                </a>
+    
+                <a href="/">
+                    <ion-icon name="telescope-outline"></ion-icon>
+                    <span>About</span>
+                </a>
+    
                 {% if user.is_authenticated %}
-                    
-                    <li>
+    
                     <a href="/tasks">
                         <ion-icon name="alert-circle-outline"></ion-icon>
                         <span>Task</span>
                     </a>
-                    </li>
-                    
-                    <li>
-                    <a href="{% url 'tasksCompleted' %}">
-                        <ion-icon name="checkmark-done-circle-outline"></ion-icon>
-                        <span>Task Completed</span>
-                    </a>
-                    </li>
-                    
-                    <li>
-                    <a href="/task/create/">
-                        <ion-icon name="create-outline"></ion-icon>
-                        <span>Create Task</span>
-                    </a>
-                    </li>
-                    
-                    
-                        
-                {% else %}
-                    <li>
-                        <a href="/signup">
-                            <ion-icon name="person-add-outline"></ion-icon>
-                            <span>Register</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/login">
-                            <ion-icon name="log-in-outline"></ion-icon>
-                            <span>Login</span>
-                        </a>
-                    </li>                
-                {% endif %} 
-
-                {% if user.is_authenticated %}
-                    <li id="log">
-                        <a href="/logout">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                            <span>Log Out</span>
-                        </a>
-                    </li>
-                {% endif %}
-                
-            </ul>
-        </nav>
-
-    </div> 
-
-    -->
-    <div class="menu">
-        <ion-icon name="menu-outline"></ion-icon>
-        <ion-icon name="close-outline"></ion-icon>
-    </div>
-
-    <div class="barra-lateral">
-        <div>
-            <div class="nombre-pagina">
-                <ion-icon id="cloud" name="albums-outline"></ion-icon>
-                <span id="title">CRUD</span>
-            </div>
-            <button class="boton">
-                <ion-icon name="add-circle-outline"></ion-icon>
-                <span>Create Task</span>
-            </button>
-        </div>
-
-        <nav class="navegacion">
-            <ul>
-                <li>
-                    <a href="/">
-                        <ion-icon name="home-outline"></ion-icon>
-                        <span>Home</span></a>
-                </li>            
-                <li>
-                    <a href="/">
-                        <ion-icon name="telescope-outline"></ion-icon>
-                        <span>About</span>
-                    </a>
-                </li>
-                
-                {% if user.is_authenticated %}
-                    
-                    <li>
-                    <a href="/tasks">
-                        <ion-icon name="alert-circle-outline"></ion-icon>
-                        <span>Task</span>
-                    </a>
-                    </li>
-                    
-                    <li>
-                    <a href="{% url 'tasksCompleted' %}">
-                        <ion-icon name="checkmark-done-circle-outline"></ion-icon>
-                        <span>Task Completed</span>
-                    </a>
-                    </li>
-                    
-                    <li>
-                    <a href="/task/create/">
-                        <ion-icon name="create-outline"></ion-icon>
-                        <span>Create Task</span>
-                    </a>
-                    </li>
-                    
-                    
-                        
-                {% else %}
-                    <li>
-                        <a href="/signup">
-                            <ion-icon name="person-add-outline"></ion-icon>
-                            <span>Register</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/login">
-                            <ion-icon name="log-in-outline"></ion-icon>
-                            <span>Login</span>
-                        </a>
-                    </li>                
-                {% endif %} 
-
-                {% if user.is_authenticated %}
-                    <li id="log">
-                        <a href="/logout">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                            <span>Log Out</span>
-                        </a>
-                    </li>
-                {% endif %}
-                
-            </ul>
-        </nav>
-
-        <div>
-            <div class="linea"></div>
-
-            <div class="modo-oscuro">
-                <div class="info">
-                    <ion-icon name="moon-outline"></ion-icon>
-                    <span>Drak Mode</span>
-                </div>
-                <div class="switch">
-                    <div class="base">
-                        <div class="circulo">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
     
-            <div class="usuario">
-                <img src="/Jhampier.jpg" alt="">
-                <div class="info-usuario">
-                    <div class="nombre-email">
-                        <span class="nombre">Jhampier</span>
-                        <span class="email">jhampier@gmail.com</span>
-                    </div>
-                    <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-                </div>
-            </div>
+                    <a href="{% url 'tasksCompleted' %}">
+                        <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+                        <span>Task Completed</span>
+                    </a>
+    
+                    <a href="/task/create/">
+                        <ion-icon name="create-outline"></ion-icon>
+                        <span>Create Task</span>
+                    </a>
+    
+    
+    
+    
+                {% else %}
+    
+                    <a href="/signup">
+                        <ion-icon name="person-add-outline"></ion-icon>
+                        <span>Register</span>
+                    </a>
+    
+                    <a href="/login">
+                        <ion-icon name="log-in-outline"></ion-icon>
+                        <span>Login</span>
+                    </a>
+    
+                {% endif %}
+    
+                {% if user.is_authenticated %}
+                    <a href="/logout">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <span>Log Out</span>
+                    </a>
+                {% endif %}
+            </nav>
         </div>
-
-    </div>
-
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-
+    </header>
+    
+    
+    
+    {% block content %}
+    {% endblock %}
+    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="{% static './static/js/main.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-
-
-
-    
 </body>
 </html>

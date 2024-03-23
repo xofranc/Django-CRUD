@@ -145,3 +145,7 @@ def signIn(request):
             'form': UserCreationForm,
             'error': "passwords No coinciden"
         })
+
+
+def about(request):
+    return render(request, 'about.html')
