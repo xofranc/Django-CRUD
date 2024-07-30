@@ -1,14 +1,15 @@
 /*Fuente que se utilizara para la app de CRUD*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*Fuente que se utilizara para la app de CRUD*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     min-height: 100vh;
     background: url("../img/1.jpg") no-repeat;
     background-size: cover;
@@ -16,7 +17,7 @@ body{
     color: white;
 }
 
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
@@ -26,10 +27,10 @@ body{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5); /* Esto puede ayudar a la visibilidad del contenido */
 }
 
-
-.navbar a{
+.navbar a {
     position: relative;
     font-size: 18px;
     color: #fff;
@@ -38,7 +39,7 @@ body{
     margin-left: 40px;
 }
 
-.navbar a::before{
+.navbar a::before {
     content: '';
     position: absolute;
     top: 100%;
@@ -49,10 +50,14 @@ body{
     transition: .3s;
 }
 
-.navbar a:hover::before{
+.navbar a:hover::before {
     width: 100%;
-
 }
 
-
+.content {
+    clear: both;
+    padding: 20px;
+    margin-top: 150px; /* Ajusta este valor según la altura de tu header */
+    padding-top: 20px; /* Añade un poco de espacio adicional en la parte superior */
+}
 
