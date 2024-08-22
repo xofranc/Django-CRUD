@@ -11,11 +11,11 @@
     
 
     {% block content %}
-    <h1>Crear Tareas</h1>
+    <h1>Crear Historia Clinica</h1>
 
         {{ errorMessage }}
         
-        <form action="/task/create/" method="POST">
+        <form action="/create/" method="POST">
         {% csrf_token %}
         
         {{ form }}

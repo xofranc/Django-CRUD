@@ -7,13 +7,15 @@ from django.contrib.auth.models import User
 # creacion de Usuarios
 
 
-class Task(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.TextField(blank=True)
+class Persona(models.Model):
+    nombre = models.CharField(max_length=100)
+    fechaNacimiento = models.DateField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
-    dateCompleted = models.DateTimeField(null=True, blank=True)
-    important = models.BooleanField(default=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+
+class History(models.Model):
+    pass
 
     def __str__(self):
         return self.title + ' - By ' + self.user.username
+    
