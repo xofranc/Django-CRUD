@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import TaskForm
-from .models import Task
+from .models import Persona
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
@@ -16,20 +16,20 @@ def home(request):
 
 # Tareas
 @login_required
-def tasks(request):
-    Task.objects.all()
+def task(request):
+    Persona.objects.all()
 
     return render(request, 'tasks.html', {
-        'tasks': Task.objects.filter(user=request.user, dateCompleted__isnull=True)
+        'tasks': Persona.objects.filter(user=request.user, dateCompleted__isnull=True)
     })
 
 
 @login_required
 def taskCompleted(request):
-    Task.objects.all()
+    Persona.objects.all()
 
     return render(request, 'tasks.html', {
-        'tasks': Task.objects.filter(user=request.user, dateCompleted__isnull=False).order_by('-dateCompleted')
+        'tasks': Persona.objects.filter(user=request.user, dateCompleted__isnull=False).order_by('-dateCompleted')
     })
 
 
@@ -59,7 +59,7 @@ def createTask(request):
 @login_required
 def taskDetails(request, taskId):
     if request.method == "GET":
-        task = get_object_or_404(Task, id=taskId, user=request.user)
+        task = get_object_or_404(Persona, id=taskId, user=request.user)
         form = TaskForm(instance=task)
         return render(request, 'task_detail.html', {
             'task': task,
@@ -67,7 +67,7 @@ def taskDetails(request, taskId):
         })
     else:
         try:
-            task = get_object_or_404(Task, id=taskId, user=request.user)
+            task = get_object_or_404(Persona, id=taskId, user=request.user)
             form = TaskForm(request.POST, instance=task)
             form.save()
             return redirect('tasks')
@@ -81,7 +81,7 @@ def taskDetails(request, taskId):
 
 @login_required
 def completeTask(request, taskId):
-    task = get_object_or_404(Task, id=taskId, user=request.user)
+    task = get_object_or_404(Persona, id=taskId, user=request.user)
     if request.method == 'POST':
         task.dateCompleted = timezone.now()
         task.save()
@@ -90,7 +90,7 @@ def completeTask(request, taskId):
 
 @login_required
 def deleteTask(request, taskId):
-    task = get_object_or_404(Task, id=taskId, user=request.user)
+    task = get_object_or_404(Persona, id=taskId, user=request.user)
     if request.method == 'POST':
         task.delete()
         return redirect('tasks')
@@ -110,7 +110,7 @@ def entry(request):
         })
     else:
         # Obtiene los datos del usuario ya registrado
-        user = authenticate(username=request.POST['username'], password=request.POST['password'])
+        user = authenticate(username=request.POST['username'], password=request.POST['password1'])
         if user is None:
             return render(request, 'login.html', {
                 'form': AuthenticationForm,

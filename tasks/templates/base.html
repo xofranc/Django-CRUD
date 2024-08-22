@@ -18,24 +18,24 @@
             <nav class="navbar">
                 <a href="/">
                     <ion-icon name="home-outline"></ion-icon>
-                    <span>Home</span>
+                    <span>Inicio</span>
                 </a>
                 <a href="/">
                     <ion-icon name="telescope-outline"></ion-icon>
-                    <span>About</span>
+                    <span>Acerca de</span>
                 </a>
                 {% if user.is_authenticated %}
                     <a href="/tasks">
                         <ion-icon name="alert-circle-outline"></ion-icon>
-                        <span>Task</span>
+                        <span>Historias Clinicas</span>
                     </a>
                     <a href="{% url 'tasksCompleted' %}">
                         <ion-icon name="checkmark-done-circle-outline"></ion-icon>
-                        <span>Task Completed</span>
+                        <span>Historial</span>
                     </a>
                     <a href="/task/create/">
                         <ion-icon name="create-outline"></ion-icon>
-                        <span>Create Task</span>
+                        <span>Crear</span>
                     </a>
                 {% else %}
                     <a href="/signup">
