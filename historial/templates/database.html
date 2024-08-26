@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+    {% for paciente in pacientes %}
+        <li>
+        <h1>{{ paciente.nombre }}</h1>
+        <p>{{ paciente.apellido }}</p>
+        <p>{{ paciente.user.username }}</p>
+            
+        {% endfor %}
+        </li>
+
+    {% endfor %}
+
+{% endblock %}

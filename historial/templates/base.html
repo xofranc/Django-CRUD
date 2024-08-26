@@ -1,0 +1,75 @@
+{# Carga de los elementos estaticos de la pagina web #}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical App</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    
+    <!-- Carga del header de la pagina web -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="{% static 'img/blanco.png' %}" alt="12k" width="60" height="55">
+            </a>
+        </div>
+        <div>
+            <nav class="navbar">
+                <a href="/">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <span>Inicio</span>
+                </a>
+                <a href="/about/">
+                    <ion-icon name="telescope-outline"></ion-icon>
+                    <span>Acerca de</span>
+                </a>
+                {% if user.is_authenticated %}
+                    <a href= '#'>
+                        <ion-icon name="alert-circle-outline"></ion-icon>
+                        <span>Historias Clinicas</span>
+                    </a>
+                    <a href="#">
+                        <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+                        <span>Historial</span>
+                    </a>
+                    <a href="/create/">
+                        <ion-icon name="create-outline"></ion-icon>
+                        <span>Crear</span>
+                    </a>
+              
+                {% else %}
+                    <a href="/register">
+                        <ion-icon name="person-add-outline"></ion-icon>
+                        <span>Register</span>
+                    </a>
+                    <a href="/login">
+                        <ion-icon name="log-in-outline"></ion-icon>
+                        <span>Login</span>
+                    </a>
+                {% endif %}
+                {% if user.is_authenticated %}
+
+                    <a href="/logout">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                        <span>Log Out</span>
+                    </a>  
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
