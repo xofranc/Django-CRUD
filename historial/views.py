@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_list_or_404
-from .models import Paciente
+
+from .form import PacienteForm
+from .models import Paciente, Doctor
 from .form import PacienteForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -88,14 +90,14 @@ def pacientes(request):
 @login_required
 def crear_paciente(request):
     if request.method == 'GET':
-        return render(request, 'create.html', {
+        return render(request, 'crear_paciente.html', {
             'form': PacienteForm
         })
     else:
         form = PacienteForm(request.POST)
         new_historia = form.save(commit=False)
         print(new_historia)
-        return render(request, 'create.html', {
+        return render(request, 'crear_paciente.html', {
             'form': PacienteForm
         })
 
@@ -147,3 +149,16 @@ def deleteHistory(request, historialId):
 def detail(request, historialId):
     if request.method == 'GET':
         pass
+
+@login_required
+def crear_Paciente(request):
+    if request.method == 'POST':
+        form = PacienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            form = PacienteForm()
+            return render(request, 'crear_paciente.html', {
+                'form': form
+            })
