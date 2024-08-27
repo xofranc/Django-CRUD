@@ -9,16 +9,62 @@
 <body>
 
     {% block content %}
+{##}
+{#    <h1>LOGIN</h1>#}
+{#    {{ error }}#}
+{#    <form action="/login/" method="POST" >#}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <button>#}
+{#            SignIn#}
+{#        </button>#}
+{#    </form>#}
+<div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="/login/" method="POST">
+                <h1>Create Account</h1>
+                <span>Or use your email for registeration</span>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                
+                <!-- AñadeCheckbox -->
+                <label for="terms" class="checkbox-container">
+                    <input type="checkbox" id="terms" required />
+                    <span class="checkmark"></span>
+                    I agree to the terms and conditions
+                </label>
+                
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <span>or use your email</span>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Welcome!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h1>LOGIN</h1>
-    {{ error }}
-    <form action="/login/" method="POST" >
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button>
-            SignIn
-        </button>
-    </form>
 
 
     {% endblock %}
