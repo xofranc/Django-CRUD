@@ -24,6 +24,11 @@ body {
 
 }
 
+#loginh1 {
+    color:#000 !important;
+
+}
+
 .header {
     position: fixed;
     top: 0;
