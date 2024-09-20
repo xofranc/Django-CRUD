@@ -12,7 +12,6 @@ class Persona(models.Model):
     gender = models.CharField(max_length=1, choices=[('M', 'Male'), ('F', 'Female'), ('O', 'Other')], default='M')
     email = models.EmailField(unique=True)
     direccion = models.CharField(max_length=120, null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     class Meta:
@@ -24,6 +23,7 @@ class Paciente(Persona):
     fecha_nacimiento = models.DateField(default=date(2000, 1, 1))
     direccion = models.CharField(max_length=255)  # Dirección del paciente
     telefono = models.IntegerField(null=False)
+    dataComplete = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
@@ -38,6 +38,7 @@ class Doctor(Persona):
     consulta_online = models.BooleanField(default=False)  # Si ofrece consultas en línea
     fecha_registro = models.DateTimeField(default=timezone.now)  # Fecha de registro
     pacientes_asignados = models.ManyToManyField(Paciente, related_name='doctores_asignados')  # Relación de pacientes asignados
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default = None)
 
     def __str__(self):
         return f"{self.nombre} {self.apellido} - {self.especialidad}"

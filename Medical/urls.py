@@ -26,10 +26,9 @@ urlpatterns = [
     path('login/', views.entry, name='login'),
     path('logout/', views.out, name='logout'),
     path('create/', views.crear_paciente, name='create'),
-    path('databases/', views.pacientes, name='pacientes'),
-    
-    
-    # path('paciente/<int:historiaId>', views.detailHistory, name="historiaDetails"),
+    path('databases/', views.pacientes, name='database'),
+    path('paciente/<int:historiaId>', views.detail, name="historiaDetails"),
+
     # path('paciente/<int:historiaId>/complete', views.complete, name="completedHistoria"),
     # path('paciente/<int:historiaId>/delete', views.deleteHistory, name="deleteHistoria"),
     # path('paciente_completed/', views.complete, name="historiaCompleted"),

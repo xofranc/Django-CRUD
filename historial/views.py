@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404
 
-from .form import PacienteForm
+from .form import PacienteForm, CustomUserCreationForm
 from .models import Paciente, Doctor
 from .form import PacienteForm
 from django.contrib.auth.models import User
@@ -18,19 +18,19 @@ from django.db import IntegrityError
 def entry(request):
     if request.method == 'GET':
         return render(request, 'login.html', {
-            'form': AuthenticationForm
+            'form': AuthenticationForm()
         })
     else:
-
-        # obtiene los datos de los usuarios ya registrados
-
+        # Autenticar al usuario
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
-        if user is not None:
+        if user is None:
+            # Si la autenticación falla, mostrar un mensaje de error
             return render(request, 'login.html', {
-                'form': AuthenticationForm,
-                'error': 'usarname or password is incorrect'
-                })
+                'form': AuthenticationForm(),
+                'error': 'Username or password is incorrect'
+            })
         else:
+            # Si la autenticación es exitosa, loguear al usuario y redirigir
             login(request, user)
             return redirect('about')
 
@@ -40,28 +40,25 @@ def entry(request):
 def signup(request):
     if request.method == 'GET':
         return render(request, 'signup.html', {
-            'form': UserCreationForm
+            'form': CustomUserCreationForm()  # Usa el formulario personalizado
         })
     else:
-        if request.POST['password1'] == request.POST['password2']:
-
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
             try:
-                # registro Usuario
-                user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
-                user.save()
-                login(request, user)
-                return redirect('home')
+                user = form.save()  # Guarda al usuario con los datos validados
+                login(request, user)  # Loguea al usuario
+                return redirect('home')  # Redirige al usuario después del registro
             except IntegrityError:
                 return render(request, 'signup.html', {
-                    'form': UserCreationForm,
-                    'error': "username ya existe"
+                    'form': form,
+                    'error': "El nombre de usuario ya existe"
                 })
-
-        return render(request, 'signup.html', {
-            'form': UserCreationForm,
-            'error': "passwords No coinciden"
-        })
-
+        else:
+            return render(request, 'signup.html', {
+                'form': form,
+                'error': "Por favor corrige los errores a continuación"
+            })
 
 # vistas de la pagina web
 def home(request):
@@ -81,7 +78,7 @@ def pacientes(request):
     Paciente.objects.all()
 
     return render(request, 'database.html', {
-        'paciente': Paciente.objects.filter(user=request.user, dataComplete=True)
+        'paciente': Paciente.objects.filter(dataComplete=True)
     })
 
 
@@ -123,27 +120,6 @@ def deleteHistory(request, historialId):
         paciente.delete()
         return redirect('home')
 
-#
-# def detailHistory(request, historialId):
-#     if request.method == 'GET':
-#         Paciente = get_list_or_404(Paciente, id=historialId, user=request.user)
-#         form = PacienteForm(instance=paciente,)
-#         return render(request, 'detailHistory.html', {
-#             'form': form,
-#             'paciente': paciente,
-#             'error_message': 'Error creating history'
-#             })
-#     else:
-#         try:
-#             paciente = get_list_or_404(Paciente, id=historialId, user=request.user)
-#             form = PacienteForm(request.POST, instance=paciente)
-#             form.save()
-#         except ValueError:
-#             return render(request, 'detailHistory.html', {
-#                 'form': form,
-#                 'paciente': paciente,
-#                 'error_message': 'Error creating history'
-#             })
 
 @login_required
 def detail(request, historialId):
@@ -162,3 +138,9 @@ def crear_Paciente(request):
             return render(request, 'crear_paciente.html', {
                 'form': form
             })
+
+@login_required
+def lista_Pacientes(request):
+    pass
+
+
