@@ -31,5 +31,5 @@ urlpatterns = [
 
     # path('paciente/<int:historiaId>/complete', views.complete, name="completedHistoria"),
     # path('paciente/<int:historiaId>/delete', views.deleteHistory, name="deleteHistoria"),
-    # path('paciente_completed/', views.complete, name="historiaCompleted"),
+    # path('paciente_c ompleted/', views.complete, name="historiaCompleted"),
 ]
