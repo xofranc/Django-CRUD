@@ -10,25 +10,22 @@
 }
 
 body {
-    min-height: 100vh;
-    background: url("../img/7283494.jpg") no-repeat;
+    background-color: #45b0de;
+    background: url("../img/hdhdfondovertical.png") no-repeat;
     background-size: cover;
-    background-position: center;
-    color: #fff;
-
+    
+    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
-
 }
 
 /*  animaciones botones */
 
 button {
     display: flex;
-    
     align-items: center;
     justify-content: center;
     background-color: #eeeeee4b;
@@ -97,7 +94,7 @@ button:hover {
 }
 
 
-/*login parte despues de body*/
+/*login*/
 
 .contenedor {
     background-color: #fff;
@@ -106,7 +103,6 @@ button:hover {
     position: relative;
     overflow: hidden;
     width: 768px;
-    max-width: 100%;
     min-height: 480px;
 }
 
@@ -345,4 +341,248 @@ button:hover {
 
 .contenedor.active .toggle-right {
     transform: translateX(200%);
+}
+
+/* Home */
+
+.homecontainer {
+    padding: 20px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+    background-color: white;
+    border-radius: 40px;
+    margin: 7%;
+    margin-left: 11%;
+    margin-top: 115%;
+    width: 80%;
+    height: auto;
+}
+
+.homecontent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hometext-section {
+    width: 48%;
+    margin-right: 2%;
+    padding: 50px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.hometext-section h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+
+.image-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Allow the image section to grow */
+}
+
+.image-section img {
+    border-radius: 20px;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    max-width: 50%; /* Ensure the image does not exceed the container height */
+}
+
+.homecontainer button {
+    background-color: #add8e6; /* Light blue color */
+    border: 2px solid #007BFF; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 45px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animation */
+    margin-top: 30px;
+}
+
+.homecontainer button:hover {
+    background-color: #007BFF; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+
+.homecontainer2 .text-section {
+    font-size: 13px;
+    text-align: left;
+    flex: 1; /* Permite que el texto ocupe el espacio restante */
+}
+
+/*keyfeatures*/
+
+.homecontainer2 {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los contenedores se ajusten en varias filas si es necesario */
+    gap: 22px; /* Espacio entre contenedores */
+    padding: 20px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+    background-color: white;
+    border-radius: 40px;
+    margin: 7%;
+    
+}
+
+.keycontainer, .effcontainer, .robcontainer {
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    flex: 1; /* Permite que los contenedores se ajusten al tamaño del contenedor padre */
+    min-width: 200px; /* Ancho mínimo para los contenedores */
+    height: 180px; /* Alto fijo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para la animación */
+}
+
+.keycontainer:hover, .effcontainer:hover, .robcontainer:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra más grande */
+}
+
+.keycontainer:hover, .effcontainer:hover, .robcontainer:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra más grande */
+}
+
+.keycontainer {
+    background-color: #fadbd8;
+}
+
+.effcontainer {
+    background-color: #d6eaf8;
+}
+
+.robcontainer {
+    background-color: #d5f5e3;
+}
+
+.keycontainer img, .effcontainer img, .robcontainer img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    object-fit: cover;
+    margin-right: 5px; /* Espacio entre la imagen y el texto */
+}
+
+/*services*/
+
+.services {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+    background-color: white;
+    border-radius: 40px;
+    margin: 5%;
+    display: flex;
+
+}
+
+.services-content {
+    margin: 5%;
+}
+
+.title-services {
+    text-align: center;
+    font-size: 30px;
+}
+.services-text {
+    text-align: center;
+    font-size: 12px;
+}
+
+.pediatric-care img, .oncology-services img, .rehabilitation-services img, .geriatric-care img {
+    max-width: 55%;
+    margin-left: 20%;
+    padding-bottom: 20%;
+}
+
+.services-content .container-services {
+    border: 2px solid #000;
+    border-radius: 20px;
+    margin-top: 3%;
+}
+
+.container-services .content-container-services{
+    display: flex; /*esto*/
+    justify-content: space-between; /*con esto = centra los contenedores uno al lado del otro*/
+    padding: 5%;
+}
+
+.container-services .pediatric-care {
+    padding: 3%;
+    width: 25%;
+    height: auto;
+}
+.container-services .oncology-services {
+    padding: 3%;
+    width: 25%;
+    height: auto;
+}
+.container-services .rehabilitation-services {
+    padding: 3%;
+    width: 25%;
+    height: auto;
+}
+.container-services .geriatric-care {
+    padding: 3%;
+    width: 25%;
+    height: auto;
+}
+
+.pediatric-care h3, .oncology-services h3, .rehabilitation-services h3, .geriatric-care h3 {
+    font-size: small;
+    
+}
+
+.pediatric-care h2, .oncology-services h2, .rehabilitation-services h2, .geriatric-care h2 {
+    font-size: large;
+}
+
+/*footer*/
+
+.footer {
+    background-color: #333;
+    border-radius: 5px;
+    margin-top: 5%; /* distancia de footer del elemento de encima */
+    padding: 2%;
+    padding-right: 10%;
+}
+
+.footer .text-section2, .footer .text-section3, .footer .text-section4 {
+    padding: 20px;
+    color: gray;
+    text-align: left;
+}
+
+.footer .footer-copyright {
+    color: gray;
+    text-align: left;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    padding-left: 32%;
+}
+
+.footer .footer-section2 h3, .footer .footer-section3 h3, .footer .footer-section4 h3 {
+    font-size: 17px;
+}
+
+.footer-section1 img {
+    max-width: 15%;
+    margin-left: 40%;
+    margin-top: 7%;  
+}
+
+.footerimage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
